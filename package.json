@@ -1,0 +1,31 @@
+{
+  "type": "module",
+  "name": "namaste-react",
+  "version": "1.0.0",
+  "description": "This is the practise codes of react.js which is I'm learning in the course.",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iampriyanshusingh/react_tutorial.git"
+  },
+  "keywords": [],
+  "author": "Priyanshu Singh",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-react": "^7.26.3",
+    "node-module": "^1.0.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.1.1"
+  },
+  "devDependencies": {
+    "cssnano": "^7.0.6",
+    "parcel": "^2.13.3",
+    "process": "^0.11.10"
+  }
+}
