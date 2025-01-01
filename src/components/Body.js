@@ -25,7 +25,7 @@ const Body = () => {
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setListOfRestaurant(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants || []
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
 

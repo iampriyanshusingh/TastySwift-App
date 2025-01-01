@@ -14,5 +14,3 @@ const Error = ()=>{
 }
 
 export default Error;
-
-//hello bhai
