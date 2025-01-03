@@ -24,6 +24,14 @@
     padding:10px;
 }
 
+.nav-items > ul > li > a{
+    text-decoration: none;
+    color: black;
+}
+.nav-items > ul > li > a:hover{
+    text-decoration: underline;
+}
+
 .res-card{
     padding:5px ;
     margin: 5px;
