@@ -1,0 +1,7 @@
+Notes.docx
+node_modules/
+.parcel-cache/
+/dist
+package-lock.json
+tailwind.config.js
+.postcssrc
