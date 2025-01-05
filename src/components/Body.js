@@ -1,4 +1,4 @@
-import RestroCard from "./RestaurantCard";
+import RestroCard, { withPromotedLabel } from "./RestaurantCard";
 import { useState } from "react";
 import Shimmer from "./shimmer";
 import useListOfRestaurant from "../utils/useListOfRestaurant";
@@ -14,6 +14,7 @@ const Body = () => {
 
   console.log("listOfRestaurant:", listOfRestaurant);
 
+  const RestaurantCardPromoted = withPromotedLabel(RestroCard);
   // Manage filtered list using custom hook
   const { filteredList, filterBySearch, filterByRating } =
     useFilteredRestaurant(listOfRestaurant);
@@ -44,11 +45,12 @@ const Body = () => {
           </button>
         </div>
         <div className=" flex items-center">
-        <button className="px-4 py-1 bg-gray-100 rounded-md"
-          onClick={() => filterByRating(4.5)}
-        >
-          Top Rated Restaurant
-        </button>
+          <button
+            className="px-4 py-1 bg-gray-100 rounded-md"
+            onClick={() => filterByRating(4.5)}
+          >
+            Top Rated Restaurant
+          </button>
         </div>
       </div>
       <div className="res-container flex flex-wrap px-2">
@@ -57,7 +59,11 @@ const Body = () => {
             key={restaurant.info.id}
             to={"/restaurant/" + restaurant.info.id}
           >
-            <RestroCard key={restaurant.info.id} resData={restaurant} />
+            {restaurant.data.promoted ? (
+              <RestaurantCardPromoted resData={restaurant} />
+            ) : (
+              <RestroCard key={restaurant.info.id} resData={restaurant} />
+            )}
           </Link>
         ))}
       </div>

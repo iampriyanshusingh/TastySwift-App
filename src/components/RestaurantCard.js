@@ -29,4 +29,17 @@ const RestroCard = (props) => {
     );
   };
 
+  //Higher ORder COmponent 
+
+  export const withPromotedLabel = (RestroCard) => {
+    return (props) => {
+      return(
+        <div>
+          <label className="absolute bg-black text-white m-2 p-2 rounded-md">Promoted</label>
+          <RestroCard {...props}/>
+        </div>
+      )
+    }
+  }
+
 export default RestroCard;
