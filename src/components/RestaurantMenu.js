@@ -1,6 +1,7 @@
 import Shimmer from "./shimmer";
 import { useParams } from "react-router";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
+import RestaurantCategory from "./RestaurantCategory";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
@@ -20,21 +21,22 @@ const RestaurantMenu = () => {
       ?.card?.categories[0]?.itemCards ||
     [];
 
-  console.log(resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
+  const categories =
+    resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+      (c) =>
+        c.card?.["card"]?.["@type"] ===
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
+
   return (
-    <div className="menu">
-      <h1>{name || "Restaurant Name Not Available"}</h1>
-      <h3>{cuisines?.join(", ") || "Cuisines Not Available"}</h3>
-      <h3>{costForTwoMessage || "Cost information not available"}</h3>
-      <h2>Menu</h2>
-      <ul>
-        {itemCards.map((items) => (
-          <li key={items.card.info.id}>
-            {items.card.info.name || "Item Name Not Available"} - Rs.{" "}
-            {(items.card.info.price || 0) / 100}
-          </li>
-        ))}
-      </ul>
+    <div className="text-center">
+      <h1 className=" my-6 font-bold text-2xl">{name || "Restaurant Name Not Available"}</h1>
+      <p className="font-bold text-lg">{cuisines?.join(", ")} - {costForTwoMessage}</p>
+
+      {/* Category Accordian */}
+      {categories.map((category) => (
+        <RestaurantCategory data={category?.card?.card} />
+      ))}
     </div>
   );
 };
