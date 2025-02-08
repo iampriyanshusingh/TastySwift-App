@@ -1,4 +1,4 @@
-import RestroCard, { withPromotedLabel } from "./RestaurantCard";
+import RestroCard from "./RestaurantCard";
 import { useState } from "react";
 import Shimmer from "./shimmer";
 import useListOfRestaurant from "../utils/useListOfRestaurant";
@@ -12,9 +12,9 @@ const Body = () => {
   // Fetch the original list of restaurants
   const listOfRestaurant = useListOfRestaurant();
 
-  console.log("listOfRestaurant:", listOfRestaurant);
+  // console.log("listOfRestaurant:", listOfRestaurant);
 
-  const RestaurantCardPromoted = withPromotedLabel(RestroCard);
+  // const RestaurantCardPromoted = withPromotedLabel(RestroCard);
   // Manage filtered list using custom hook
   const { filteredList, filterBySearch, filterByRating } =
     useFilteredRestaurant(listOfRestaurant);
@@ -59,11 +59,11 @@ const Body = () => {
             key={restaurant.info.id}
             to={"/restaurant/" + restaurant.info.id}
           >
-            {restaurant.data.promoted ? (
+            {/* {restaurant.data.promoted ? (
               <RestaurantCardPromoted resData={restaurant} />
-            ) : (
+            ) : ( */}
               <RestroCard key={restaurant.info.id} resData={restaurant} />
-            )}
+            {/* )} */}
           </Link>
         ))}
       </div>

@@ -1,9 +1,8 @@
 import Shimmer from "./shimmer";
 import { useParams } from "react-router";
-import useRestaurantMenu from "../utils/useRestaurantMenu"
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantMenu = () => {
-  
   const { resId } = useParams();
 
   const resInfo = useRestaurantMenu(resId);
@@ -16,12 +15,12 @@ const RestaurantMenu = () => {
   const itemCards =
     resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[2]?.card
       ?.card?.itemCards ||
-
-      //adding again because some item contain in categories or some in just after card.....
+    //adding again because some item contain in categories or some in just after card.....
     resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[2]?.card
       ?.card?.categories[0]?.itemCards ||
     [];
 
+  console.log(resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
   return (
     <div className="menu">
       <h1>{name || "Restaurant Name Not Available"}</h1>

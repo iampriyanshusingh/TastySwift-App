@@ -15,7 +15,10 @@ const Header = () => {
         </div>
         <div className="flex items-center">
           <ul className="flex m-8 p-4">
-            <li className="px-4">Online Status: {onlineStatus ? "✅" : "🔴"}</li>
+            <li className="px-4">
+              Online Status: {onlineStatus ? "✅" : "🔴"}
+            </li>
+
             <li className="px-4 hover:underline">
               <Link to="/">Home</Link>
             </li>
@@ -31,6 +34,7 @@ const Header = () => {
             <li className="px-4 hover:underline">
               <Link to="#">Cart</Link>
             </li>
+            <li className="px-4 hover:underline">Location:- VNS</li>
             <button
               className="px-4 hover:underline"
               onClick={() => {
