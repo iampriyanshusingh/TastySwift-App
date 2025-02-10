@@ -1,11 +1,15 @@
 import { LOGO_URL } from "../utils/constants";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
+
 const Header = () => {
   const [btn, setbtn] = useState("Login");
 
   const onlineStatus = useOnlineStatus();
+
+  const { loggedInUser } = useContext(UserContext);
 
   return (
     <>
@@ -31,10 +35,6 @@ const Header = () => {
             <li className="px-4 hover:underline">
               <Link to="/grocery">Grocery</Link>
             </li>
-            <li className="px-4 hover:underline">
-              <Link to="#">Cart</Link>
-            </li>
-            <li className="px-4 hover:underline">Location:- VNS</li>
             <button
               className="px-4 hover:underline"
               onClick={() => {
@@ -43,6 +43,9 @@ const Header = () => {
             >
               {btn}
             </button>
+            <li className="px-4 font-bold">
+              <Link to="#">{loggedInUser}</Link>
+            </li>
           </ul>
         </div>
       </div>
