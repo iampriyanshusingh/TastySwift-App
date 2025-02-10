@@ -5,8 +5,7 @@
   "description": "This is the practise codes of react.js which is I'm learning in the course.",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html",
-    "test": "jest"
+    "build": "parcel build index.html"
   },
   "repository": {
     "type": "git",
