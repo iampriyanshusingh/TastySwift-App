@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 
 const cartSlice = createSlice({
   name: "cart",
@@ -11,11 +11,15 @@ const cartSlice = createSlice({
       //mutating the stater here
       state.items.push(action.payload);
     },
-    removeItems: (state) => {
+    removeItems: (stat,action) => {
       state.items.pop();
     },
-    clearCart: (state) => {
-      state.items.length = 0;
+    clearCart: (state,action) => {
+      state.items.length = 0; // or i can use return {items: []}
+
+      // if i want to console.log(state) it will not show the value it will show the ProxyArray
+      // But if we want to see the value we have to use console.log(current(state));
+      // and this current is come from @reduxToolkit
     },
   },
 });

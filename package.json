@@ -5,7 +5,8 @@
   "description": "This is the practise codes of react.js which is I'm learning in the course.",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -15,7 +16,6 @@
   "author": "Priyanshu Singh",
   "license": "ISC",
   "dependencies": {
-    "@babel/core": "^7.26.0",
     "@babel/preset-react": "^7.26.3",
     "@reduxjs/toolkit": "^2.5.1",
     "node-module": "^1.0.1",
@@ -25,7 +25,13 @@
     "react-router-dom": "^7.1.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.26.10",
+    "@babel/preset-env": "^7.26.9",
+    "@testing-library/react": "^16.2.0",
+    "babel-jest": "^29.7.0",
     "cssnano": "^7.0.6",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "parcel": "^2.13.3",
     "postcss": "^8.4.49",
     "process": "^0.11.10",
