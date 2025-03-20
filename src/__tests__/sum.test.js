@@ -1,4 +1,4 @@
-import sum  from "../sum";
+import sum  from "../components/sum";
 
 test("Sum func should calculate the sum of the two numbers", () => {
   const result = sum(2,2);
